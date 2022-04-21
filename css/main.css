@@ -3,3 +3,66 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: whitesmoke;
+  padding: 1rem;
+}
+
+h1 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+article {
+  width: 300px;
+  margin: 20px 10px 0;
+  /* padding: 1rem; */
+  border: 1px solid #000;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #333;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.details {
+  text-align: center;
+  padding: 10px;
+}
+
+.like {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 3%;
+  right: 3%;
+}
+
+.like-no {
+  background: url('../img/unlike.svg') no-repeat;
+  cursor: pointer;
+}
+
+.like-yes {
+  background: url('../img/like.svg') no-repeat;
+  cursor: pointer;
+}

@@ -4,6 +4,7 @@ const initApp = async () => {
   // render data to page
   renderContacts(contacts);
   // add listeners
+  listenForLikes();
 };
 
 document.addEventListener('DOMContentLoaded', initApp);
@@ -46,7 +47,7 @@ const createPersonCard = (elemObj, person) => {
   const { article, img, details, like, name, email, phone } = elemObj;
 
   details.className = 'details';
-  like.classList.add('like', 'unfavorite');
+  like.classList.add('like', 'like-no');
   name.textContent = `${person.name.first} ${person.name.last}`;
   img.src = person.picture.large;
   email.textContent = person.email;
@@ -60,4 +61,40 @@ const createPersonCard = (elemObj, person) => {
   article.appendChild(like);
 
   return article;
+};
+
+const listenForLikes = () => {
+  const likes = document.querySelectorAll('.like');
+
+  likes.forEach((like) => {
+    like.addEventListener('click', (e) => {
+      e.target.classList.toggle('like-no');
+      e.target.classList.toggle('like-yes');
+
+      if (e.target.classList.contains('like-yes')) {
+        console.log('✅💾Saving Favorite...');
+        getFaveData(e.target);
+      } else {
+        console.log('❌ Removing Favorite...');
+        getFaveData(e.target);
+      }
+    });
+  });
+};
+
+const getFaveData = (elem) => {
+  const parent = elem.parentElement;
+  const img = parent.querySelector('img').src;
+  const name = parent.querySelector('h2').textContent;
+  const email = parent.querySelector('p').textContent;
+  const { firstName, lastName } = name.split(' ');
+
+  const faveObj = {
+    img,
+    firstName,
+    lastName,
+    email,
+  };
+
+  console.log(faveObj);
 };
