@@ -26,7 +26,6 @@ main {
 article {
   width: 300px;
   margin: 20px 10px 0;
-  /* padding: 1rem; */
   border: 1px solid #000;
   border-radius: 20px;
   box-shadow: 5px 5px 10px #333;
